@@ -14,9 +14,9 @@ const App = () => {
                 <div className="container">
                     <div className="main-grid">
                         <Nav />
-                        {/* <Router>
+                        <Router>
                             <Route path="/main-posts" element={<Main/>}/>
-                        </Router> */}
+                        </Router>
                     </div>
                 </div>
             </div>
