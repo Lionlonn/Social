@@ -1,0 +1,23 @@
+
+.navBar {
+    background: green;
+}
+
+.nav {
+    max-width: 200px;
+}
+
+.nav-item {
+    list-style-type: none;
+    margin-bottom: 20px;
+    
+}
+
+.nav-item:last-child {
+    margin-bottom: 0;
+}
+.nav-item a{
+    list-style-type: none;
+    text-decoration: none;
+    color: black;
+}

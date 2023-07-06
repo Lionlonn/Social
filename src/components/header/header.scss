@@ -1,0 +1,22 @@
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.header {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: burlywood;
+    
+}
+
+.menu ul{
+    gap: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
