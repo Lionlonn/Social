@@ -1,0 +1,30 @@
+{
+    "data": 
+    [
+        {
+            "name": "Dima",
+            "id": "1",
+            "message": "Hi, how are you"
+        },
+        {
+            "name": "Aima",
+            "id": "2",
+            "message": "I`m back"
+        },
+        {
+            "name": "Alex",
+            "id": "3",
+            "message": "Go play in For Honor?"
+        },
+        {
+            "name": "Bob",
+            "id": "4",
+            "message": "Tired"
+        },
+        {
+            "name": "Olga",
+            "id": "5",
+            "message": "What are you doing?"
+        }
+    ]
+}

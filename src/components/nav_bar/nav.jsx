@@ -10,7 +10,6 @@ const Nav = () => {
                     <ul className="nav-list">
                         <li className="nav-item">
                             <Link to="/main-posts">Профиль</Link>
-                            {/* <a href="/main-posts">Профиль</a> */}
                         </li>
                         <li className="nav-item">
                             <Link to="/dialogs">Сообщения</Link>

@@ -1,0 +1,16 @@
+.chat {
+    background: silver;
+}
+
+.dialogs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.dialog a {
+    text-decoration: none;
+    color: black;
+}
+.dialog a:focus {
+    color: #fff;
+}
