@@ -37,4 +37,16 @@ let state = {
     } 
 }
 
+export let addPost = (postMessage) => {
+    debugger
+    let newPost = {
+        img: "https://phonoteka.org/uploads/posts/2022-09/1663304449_53-phonoteka-org-p-berserk-gats-art-vkontakte-65.jpg",
+        id: 4,
+        comment: postMessage,
+        countLike: 6
+    }
+
+    state.postsPage.posts.push(newPost);
+}
+
 export default state

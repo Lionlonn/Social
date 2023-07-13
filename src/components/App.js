@@ -17,7 +17,9 @@ const App = (props) => {
                         <div className="main-grid">
                             <Nav />
                             <Routes>
-                                <Route path="main-posts" element={<Main state={props.state.postsPage}/>}/>
+                                <Route path="main-posts" element={<Main 
+                                    state={props.state.postsPage}
+                                    addPost={props.addPost}/>}/>
                                 <Route path="dialogs" element={<Dialogs state={props.state.messagePage}/>}/>
                             </Routes>
                         </div>

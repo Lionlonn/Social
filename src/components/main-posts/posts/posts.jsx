@@ -4,17 +4,16 @@ import Post from "../../post/post.jsx";
 // import { addPost } from '../../../state/redux/state'
 
 const Posts = (props) => {
+    const postElement = props.posts.map(post => <Post  img={post.img} id={post.id} comment={post.comment} countLike={post.countLike}/>)
+
     let newPost = React.createRef();
 
     const onButtonClick = () => {
+        debugger
         let text = newPost.current.value;
-        alert(text)
+        props.addPost(text)
     }
 
-    
-
-    const postElement = props.posts.map(post => <Post  img={post.img} id={post.id} comment={post.comment} countLike={post.countLike}/>)
-    
     return (
         <div className="posts">
             <textarea ref={newPost}></textarea>
