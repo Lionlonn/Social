@@ -3,12 +3,12 @@ import './main.scss'
 import image from './image/main-fon.jpg'
 import Posts from "./posts/posts.jsx";
 
-const Main = () => {
+const Main = (props) => {
     return (
         <div className="main">
             <div className="main-container">
                 <img src={image} alt="" />
-                <Posts />
+                <Posts posts={props.state.posts}/>
             </div>
                 
         </div>

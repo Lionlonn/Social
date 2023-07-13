@@ -7,10 +7,35 @@
     grid-template-columns: 1fr 1fr;
 }
 
+.dialog {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #ebbdbd;
+    padding: 10px;
+}
+
+.message-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+}
+
+.dialogs img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
 .dialog a {
     text-decoration: none;
     color: black;
 }
 .dialog a:focus {
     color: #fff;
+}
+
+.message-send {
+    display: flex;
 }

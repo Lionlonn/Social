@@ -7,7 +7,7 @@ import Dialogs from "./dialogs/dialogs.jsx";
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 
 
-const App = () => {
+const App = (props) => {
     return (
         <Router>
             <div>
@@ -17,8 +17,8 @@ const App = () => {
                         <div className="main-grid">
                             <Nav />
                             <Routes>
-                                <Route path="main-posts" element={<Main/>}/>
-                                <Route path="dialogs" element={<Dialogs/>}/>
+                                <Route path="main-posts" element={<Main state={props.state.postsPage}/>}/>
+                                <Route path="dialogs" element={<Dialogs state={props.state.messagePage}/>}/>
                             </Routes>
                         </div>
                     </div>

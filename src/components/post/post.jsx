@@ -2,27 +2,19 @@ import React from "react";
 import './post.scss'
 
 
-const { data: posts } = require("../../data/post/post.json")
 
-const PostUser = (props) => {
+
+
+const Post = (props) => {
+    
+    
     return (
         <div className="post-item">
-            <img src={props.avatar}></img>
+            <img src={props.img}></img>
             { props.comment }
             <div>
                 <span>Like {props.countLike}</span>
             </div>
-        </div>
-    )
-}
-
-
-const Post = (props) => {
-    return (
-        <div className="wrapper-post">
-            {posts.map(post => (
-                <PostUser avatar={post.avatar} comment={post.comment} countLike={post.countLike}/>
-            ))}
         </div>
     )
 }
