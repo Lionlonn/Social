@@ -1,4 +1,7 @@
-import { renderEntireTree } from '../../../src/render'
+let renderEntireTree = () => {
+    console.log("state changed");
+}
+
 
 let state = {
     postsPage: {
@@ -39,7 +42,7 @@ let state = {
         ]
     } 
 }
-export let addPost = () => {
+export const addPost = () => {
     let newPost = {
         img: "https://phonoteka.org/uploads/posts/2022-09/1663304449_53-phonoteka-org-p-berserk-gats-art-vkontakte-65.jpg",
         id: 4,
@@ -53,11 +56,14 @@ export let addPost = () => {
 }
 
 
-export let updatePostText = (postMessage) => {
+export const updatePostText = (postMessage) => {
     state.postsPage.newPostText = postMessage;
     
     renderEntireTree(state)
 }
 
+export const subcriber = (observer) => {
+    renderEntireTree = observer; // Наблюдатель observer pattern
+}
 
 export default state
