@@ -1,3 +1,5 @@
+import { renderEntireTree } from '../../../src/render'
+
 let state = {
     postsPage: {
         posts: [
@@ -20,6 +22,7 @@ let state = {
                 countLike: 2
             },
         ],
+        newPostText: "New Camasutre"
     },
     messagePage: {
         dialogs: [
@@ -36,17 +39,25 @@ let state = {
         ]
     } 
 }
-
-export let addPost = (postMessage) => {
-    debugger
+export let addPost = () => {
     let newPost = {
         img: "https://phonoteka.org/uploads/posts/2022-09/1663304449_53-phonoteka-org-p-berserk-gats-art-vkontakte-65.jpg",
         id: 4,
-        comment: postMessage,
+        comment: state.postsPage.newPostText,
         countLike: 6
     }
-
+    
     state.postsPage.posts.push(newPost);
+    state.postsPage.newPostText = ""
+    renderEntireTree(state)
 }
+
+
+export let updatePostText = (postMessage) => {
+    state.postsPage.newPostText = postMessage;
+    
+    renderEntireTree(state)
+}
+
 
 export default state

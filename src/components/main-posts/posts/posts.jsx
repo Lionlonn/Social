@@ -8,15 +8,22 @@ const Posts = (props) => {
 
     let newPost = React.createRef();
 
+
     const onButtonClick = () => {
-        debugger
+        props.addPost()
+    }
+
+    let onPostChange = () => {
         let text = newPost.current.value;
-        props.addPost(text)
+        props.updatePostText(text);
     }
 
     return (
         <div className="posts">
-            <textarea ref={newPost}></textarea>
+            <textarea 
+                onChange={onPostChange}
+                ref={newPost} 
+                value={props.newPostText}/>
             <div className="post-user">
                 <button onClick={ onButtonClick }>Отправить</button>
                 <button>Удалить</button>

@@ -8,7 +8,11 @@ const Main = (props) => {
         <div className="main">
             <div className="main-container">
                 <img src={image} alt="" />
-                <Posts posts={props.state.posts} addPost={props.addPost}/>
+                <Posts 
+                    posts={props.postsPage.posts} 
+                    newPostText={props.postsPage.newPostText}
+                    updatePostText={props.updatePostText}
+                    addPost={props.addPost}/>
             </div>
                 
         </div>
