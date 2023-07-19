@@ -1,17 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./components/App"; 
-import state, { subcriber } from './state/redux/state'
-import { addPost, updatePostText } from './state/redux/state'
+import store from './state/redux/state'
+import { BrowserRouter } from "react-router-dom";
+// import state, { subcriber } from './state/redux/state'
+// import { addPost, updatePostText } from './state/redux/state'
 // import { subcriber } from './state/redux/state'
 
 let renderEntireTree = (state) => {
     ReactDOM.render(<App 
         state={state} 
-        addPost={addPost}
-        updatePostText={updatePostText}
+        dispatch={store.dispatch.bind(store)}
         />, document.getElementById('root'));
 }
 
-renderEntireTree(state)
-subcriber(renderEntireTree)
+renderEntireTree(store.getState())
+store.subcriber(renderEntireTree)

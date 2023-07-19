@@ -11,8 +11,7 @@ const Main = (props) => {
                 <Posts 
                     posts={props.postsPage.posts} 
                     newPostText={props.postsPage.newPostText}
-                    updatePostText={props.updatePostText}
-                    addPost={props.addPost}/>
+                    dispatch={props.dispatch}/>
             </div>
                 
         </div>
