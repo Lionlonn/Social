@@ -3,17 +3,26 @@ import './dialogs.scss'
 // import { Link, useParams } from "react-router-dom"
 import  DialogItem  from './Dialogitem/dialogItem.jsx'
 import  MessageItem  from './MessageItem/messageItem.jsx'
+import { addMessageActionCreater, updateMessageActionCreator } from '../../state/redux/state'
 
 
 const Dialogs = (props) => {
+    const dialogElement = props.state.dialogs.map(user => <DialogItem name={user.name} id={user.id}/>)
+    const messageElement = props.state.dialogs.map(user => <MessageItem message={user.message} id={user.id}/>)
+
     const newMessage = React.createRef();
 
     const onMessageClick = () => {
-        let text = newMessage.current.value;
-        alert(text)
+        debugger
+        props.dispatch(addMessageActionCreater())
     }
-    const dialogElement = props.state.dialogs.map(user => <DialogItem name={user.name} id={user.id}/>)
-    const messageElement = props.state.messages.map(user => <MessageItem message={user.message} id={user.id}/>)
+    const onMessageChange = () => {
+        let text = newMessage.current.value;
+        let action = updateMessageActionCreator(text)
+        props.dispatch(action)
+    }
+    
+    
     return (
         <div className="chat">
             <div className="dialogs">
@@ -23,7 +32,11 @@ const Dialogs = (props) => {
                 <div className="messages">
                     { messageElement }
                     <div className="message-send">
-                        <textarea ref={ newMessage }></textarea>
+                        <textarea 
+                            onChange = {onMessageChange}
+                            ref={ newMessage }
+                            value = {props.newMssageText}
+                            ></textarea>
                         <button onClick={ onMessageClick }>Отправить</button>
                     </div>
                 </div>
