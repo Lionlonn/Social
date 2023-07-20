@@ -17,11 +17,11 @@ const App = (props) => {
                         <div className="main-grid">
                             <Nav />
                             <Routes>
-                                <Route path="main-posts" element={<Main 
+                                <Route path="/main-posts" element={<Main 
                                     postsPage={props.state.postsPage}
                                     dispatch={props.dispatch}/>}/>
-                                <Route path="dialogs" element={<Dialogs 
-                                    state={props.state.messagePage}
+                                <Route path="/dialogs" element={<Dialogs 
+                                    store={props.store}
                                     dispatch = {props.dispatch}
                                     />}/>
                             </Routes>

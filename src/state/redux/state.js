@@ -1,7 +1,9 @@
 const ADD_POST = 'ADD-POST'
 const UPDATE_POST_TEXT = 'UPDATE-POST-TEXT'
-const ADD_MESSAGE = "ADD-MESSAGE"
-const UPDATE_MESSAGE_TEXT = "UPDATE-MESSAGE-TEXT"
+// const ADD_MESSAGE = "ADD-MESSAGE"
+// const UPDATE_MESSAGE_TEXT = "UPDATE-MESSAGE-TEXT"
+const UPDATE_MESSAGE_BODY = "UPDATE-MESSAGE-TEXT"
+const SEND_MESSAGE = "SENT-MESSAGE"
 
 let store = {
     _state: {
@@ -30,18 +32,18 @@ let store = {
         },
         messagePage: {
             dialogs: [
-                {id: 2, name: "Andrey", message: "hu"},
-                {id: 2, name: "Andrey", message: "huвывфы"},
-                {id: 2, name: "Andrey", message: "hфвфывu"},
-                {id: 2, name: "Andrey", message: "фывфывф"},
+                {id: 4, name: "Andrey"},
+                {id: 6, name: "Andrey"},
+                {id: 4, name: "Andrey"},
+                {id: 7, name: "Andrey"},
             ],
             messages: [
-                {id:2, message: "hu"},
-                {id:2, message: "hdsdsu"},
-                {id:2, message: "aaahu"},
-                {id:2, message: "hdu"},
+                {id:13, message: "hu"},
+                {id:23, message: "hdsdsu"},
+                {id:5, message: "aaahu"},
+                {id:6, message: "hdu"},
             ],
-            newMssageText: "New Message Text test"
+            newMssageBody: ""
         } 
     },
     _callSubcriber() {
@@ -67,21 +69,7 @@ let store = {
         this._state.postsPage.newPostText = ""
         this._callSubcriber(this._state)
     },
-    _addMessage() {
-        let newMessage = {
-            img: "https://slovnet.ru/wp-content/uploads/2019/01/52-1.png",
-            id: 3,
-            name: "Alex",
-            message: this._state.messagePage.newMssageText
-        }
-        this._state.messagePage.dialogs.push(newMessage)
-        this._state.messagePage.newMssageText = ""
-        this._callSubcriber(this._state)
-    },
-    _updateMessageText(upMessage) {
-        this._state.messagePage.newMssageText = upMessage
-        this._callSubcriber(this._state)
-    },
+    
     _updatePostText(postMessage) {
         this._state.postsPage.newPostText = postMessage;
         this._callSubcriber(this._state)
@@ -92,18 +80,27 @@ let store = {
             this._addPost()
         } else if (action.type === UPDATE_POST_TEXT) {
            this._updatePostText(action.postMessage)
-        } else if (action.type === ADD_MESSAGE) {
-            this._addMessage()
-        } else if (action.type === UPDATE_MESSAGE_TEXT) {
-            this._updateMessageText(action.upMessage)
+        } else if (action.type === UPDATE_MESSAGE_BODY) {
+            this._state.messagePage.newMssageBody = action.body;
+            this._callSubcriber(this._state)
+        } else if (action.type === SEND_MESSAGE) {
+            let body = this._state.messagePage.newMssageBody
+            this._state.messagePage.newMssageBody = '';
+            this._state.messagePage.messages.push({id:25, message: body})
+            this._callSubcriber(this._state)
         }
     },
 }
 
+
+
+
+
 export const addPostActionCreater = () => ({ type: ADD_POST})
 export const updateNewPostTextActionCreate = (text) => ({type: UPDATE_POST_TEXT, postMessage: text})
-export const addMessageActionCreater = () => ({type: ADD_MESSAGE})
-export const updateMessageActionCreator = (text) => ({type: UPDATE_MESSAGE_TEXT, upMessage: text})
+
+export const sendMessageCreator = () => ({ type: SEND_MESSAGE})
+export const updateNewMessageBodyCreator = (body) => ({type: UPDATE_MESSAGE_BODY, body: body})
 
 export default store
 window.store = store
