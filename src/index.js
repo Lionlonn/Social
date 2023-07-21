@@ -1,11 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./components/App"; 
-import store from './state/redux/state'
+import store from './state/redux/store'
 import { BrowserRouter } from "react-router-dom";
-// import state, { subcriber } from './state/redux/state'
-// import { addPost, updatePostText } from './state/redux/state'
-// import { subcriber } from './state/redux/state'
 
 let renderEntireTree = (state) => {
     ReactDOM.render(<App 

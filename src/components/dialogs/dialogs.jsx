@@ -3,7 +3,7 @@ import './dialogs.scss'
 import { Link, Route, useParams, Routes } from "react-router-dom"
 import  DialogItem  from './Dialogitem/dialogItem.jsx'
 import  MessageItem  from './MessageItem/messageItem.jsx'
-import { updateNewMessageBodyCreator, sendMessageCreator} from '../../state/redux/state'
+import { updateNewMessageBodyCreator, sendMessageCreator} from '../../state/redux/message-page-reducer'
 
 
 const Dialogs = (props) => {
@@ -14,8 +14,6 @@ const Dialogs = (props) => {
     const dialogElement = state.dialogs.map(user => <DialogItem name={user.name} id={user.id}/>)
     const messageElement = state.messages.map(user => <MessageItem message={user.message} id={user.id}/>)
     let newMessageBody = state.newMssageBody;
-
-    // const newMessage = React.createRef();
 
     const onSendMessageClick = () => {
         props.store.dispatch(sendMessageCreator())
