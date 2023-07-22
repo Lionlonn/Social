@@ -91,19 +91,6 @@ let store = {
 
 
 
-// if (action.type === ADD_POST) {
-//     this._addPost()
-// } else if (action.type === UPDATE_POST_TEXT) {
-//    this._updatePostText(action.postMessage)
-// } else if (action.type === UPDATE_MESSAGE_BODY) {
-//     this._state.messagePage.newMssageBody = action.body;
-//     this._callSubcriber(this._state)
-// } else if (action.type === SEND_MESSAGE) {
-//     let body = this._state.messagePage.newMssageBody
-//     this._state.messagePage.newMssageBody = '';
-//     this._state.messagePage.messages.push({id:25, message: body})
-//     this._callSubcriber(this._state)
-// }
 
 
 

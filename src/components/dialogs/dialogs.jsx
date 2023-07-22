@@ -3,7 +3,7 @@ import './dialogs.scss'
 import { Link, Route, useParams, Routes } from "react-router-dom"
 import  DialogItem  from './Dialogitem/dialogItem.jsx'
 import  MessageItem  from './MessageItem/messageItem.jsx'
-import { updateNewMessageBodyCreator, sendMessageCreator} from '../../state/redux/message-page-reducer'
+import { updateNewMessageBodyCreator, sendMessageCreator} from '../../redux/message-page-reducer'
 
 
 const Dialogs = (props) => {

@@ -1,7 +1,32 @@
 const ADD_POST = 'ADD-POST'
 const UPDATE_POST_TEXT = 'UPDATE-POST-TEXT'
 
-const postsReducer = (state, action) => {
+
+let initialState = {
+    posts: [
+        {   
+            img: "https://phonoteka.org/uploads/posts/2022-09/1663304449_53-phonoteka-org-p-berserk-gats-art-vkontakte-65.jpg",
+            id: 2, 
+            comment: "dsadasd", 
+            countLike: 2
+        },
+        {   
+            img: "https://phonoteka.org/uploads/posts/2022-09/1663304449_53-phonoteka-org-p-berserk-gats-art-vkontakte-65.jpg",
+            id: 2, 
+            comment: "dsadasd", 
+            countLike: 2
+        },
+        {   
+            img: "https://phonoteka.org/uploads/posts/2022-09/1663304449_53-phonoteka-org-p-berserk-gats-art-vkontakte-65.jpg",
+            id: 2, 
+            comment: "dsadasd", 
+            countLike: 2
+        },
+    ],
+    newPostText: "New Camasutre"
+}
+
+const postsReducer = (state = initialState, action) => {
     switch(action.type) {
         case ADD_POST:
             let newPost = {
