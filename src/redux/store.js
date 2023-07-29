@@ -79,11 +79,12 @@ let store = {
     },
     
     dispatch(action) {
-
+        debugger
         this._state.postsPage = postsReducer(this._state.postsPage, action);
-
         this._state.messagePage = messageReducer(this._state.messagePage, action);
         this._callSubcriber(this._state)
+        
+        console.log(this._state.postsPage);
 
         
     },

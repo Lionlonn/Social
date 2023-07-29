@@ -17,18 +17,41 @@ let initialState = {
     newMssageBody: ""
 }
 
-const messageReducer = (state = initialState, action) => {
+// const messageReducer = (state = initialState, action) => {
 
-    switch(action.type) {
-        case UPDATE_MESSAGE_BODY: 
-            state.newMssageBody = action.body;
-            return state;
+//     switch(action.type) {
+//         case UPDATE_MESSAGE_BODY: 
+//             state.newMssageBody = action.body;
+//             return state;
+//         case SEND_MESSAGE:
+//             let body = state.newMssageBody
+//             state.newMssageBody = '';
+//             state.messages.push({id:25, message: body})
+//             return state;
+//         default:
+//             return state;
+//     }
+// }
+
+
+
+const messageReducer = (state = initialState, action) => {
+    switch (action.type) {
+        case UPDATE_MESSAGE_BODY:
+            return {
+                ...state,
+                newMssageBody: action.body,
+            };
+            
         case SEND_MESSAGE:
-            let body = state.newMssageBody
-            state.newMssageBody = '';
-            state.messages.push({id:25, message: body})
-            return state;
+            let body = state.newMssageBody;
+            return {
+                ...state,
+                newMssageBody: '',
+                messages: [...state.messages, { id: 25, message: body }],
+            };
         default:
+            console.log(state);
             return state;
     }
 }
