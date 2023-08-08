@@ -1,5 +1,6 @@
 import React from "react"
 import './dialogs.scss'
+import { useSelector, useDispatch } from 'react-redux';
 import { Link, Route, useParams, Routes } from "react-router-dom"
 import  DialogItem  from './Dialogitem/dialogItem.jsx'
 import  MessageItem  from './MessageItem/messageItem.jsx'
@@ -8,7 +9,29 @@ import { updateNewMessageBodyCreator, sendMessageCreator} from '../../redux/mess
 
 const Dialogs = (props) => {
     
-    let state = props.store.getState().messagePage;
+    
+    // let state = props.store.getState().messagePage;
+    // console.log(test);
+    
+
+    
+    // const dialogElement = state.dialogs.map(user => <DialogItem name={user.name} id={user.id}/>)
+    // const messageElement = state.messages.map(user => <MessageItem message={user.message} id={user.id}/>)
+    // let newMessageBody = state.newMssageBody;
+    
+
+    // const onSendMessageClick = () => {
+    //     props.store.dispatch(sendMessageCreator())
+    // }
+    // const onNewMessageChange = (e) => {
+    //     let body = e.target.value;
+        
+    //     props.store.dispatch(updateNewMessageBodyCreator(body))
+       
+    // }
+
+    const state = useSelector(state => state.messagePage)
+    const dispatch = useDispatch();
 
     
     const dialogElement = state.dialogs.map(user => <DialogItem name={user.name} id={user.id}/>)
@@ -17,15 +40,16 @@ const Dialogs = (props) => {
     
 
     const onSendMessageClick = () => {
-        props.store.dispatch(sendMessageCreator())
+        // props.store.dispatch(sendMessageCreator())
+        dispatch(sendMessageCreator());
     }
     const onNewMessageChange = (e) => {
         let body = e.target.value;
         
         // props.store.dispatch(updateNewMessageBodyCreator(body))
-        console.log(props.store.dispatch(updateNewMessageBodyCreator(body)));
+        dispatch(updateNewMessageBodyCreator(body))
+       
     }
-    
     
     return (
         <div className="chat">

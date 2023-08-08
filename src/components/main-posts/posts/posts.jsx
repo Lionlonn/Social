@@ -1,33 +1,34 @@
 import React from "react";
 import './posts.scss'
 import Post from "../../post/post.jsx";
+import { useSelector, useDispatch } from 'react-redux';
 import { addPostActionCreater, updateNewPostTextActionCreate} from '../../../redux/posts-page-reducer'
 
 
 
 
 const Posts = (props) => {
-    const postElement = props.posts.map(post => <Post  img={post.img} id={post.id} comment={post.comment} countLike={post.countLike}/>)
+    const state = useSelector(state => state.postsPage)
+    const dispatch = useDispatch();
+    const postElement = state.posts.map(post => <Post  img={post.img} id={post.id} comment={post.comment} countLike={post.countLike}/>)
 
-    let newPost = React.createRef();
-
+    let newPost = state.newPostText;
+    console.log(newPost);
 
     const onButtonClick = () => {
-        props.dispatch( addPostActionCreater())
+        dispatch(addPostActionCreater())
     }
 
-    let onPostChange = () => {
-        let text = newPost.current.value;
-        let action = updateNewPostTextActionCreate(text)
-        props.dispatch(action)
+    let onPostChange = (e) => {
+        let text = e.target.value
+        dispatch(updateNewPostTextActionCreate(text))
     }
 
     return (
         <div className="posts">
-            <textarea 
+            <textarea  placeholder="Enter your post"
                 onChange={onPostChange}
-                ref={newPost} 
-                value={props.newPostText}/>
+                value={state.newPostText}/>
             <div className="post-user">
                 <button onClick={ onButtonClick }>Отправить</button>
                 <button>Удалить</button>

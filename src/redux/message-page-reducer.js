@@ -1,3 +1,6 @@
+import { useSelector, useDispatch } from '@reduxjs/toolkit';
+
+
 const UPDATE_MESSAGE_BODY = "UPDATE-MESSAGE-TEXT"
 const SEND_MESSAGE = "SENT-MESSAGE"
 
@@ -17,6 +20,50 @@ let initialState = {
     newMssageBody: ""
 }
 
+
+
+const messageReducer = (state = initialState, action) => {
+    
+    
+    
+    switch (action.type) {
+        case UPDATE_MESSAGE_BODY:
+            return {
+                ...state,
+                newMssageBody: action.body,
+                
+            };
+            
+        case SEND_MESSAGE:
+            let body = state.newMssageBody;
+            
+            return {
+                ...state,
+                newMssageBody: '',
+                messages: [...state.messages, { id: 25, message: body }],
+            };
+            
+        default:
+            
+            return state;
+    }
+}
+
+
+
+export const sendMessageCreator = () => ({ type: SEND_MESSAGE})
+
+export const updateNewMessageBodyCreator = (body) => ({type: UPDATE_MESSAGE_BODY, body: body})
+
+
+export default messageReducer
+
+
+
+
+
+
+
 // const messageReducer = (state = initialState, action) => {
 
 //     switch(action.type) {
@@ -32,32 +79,3 @@ let initialState = {
 //             return state;
 //     }
 // }
-
-
-
-const messageReducer = (state = initialState, action) => {
-    switch (action.type) {
-        case UPDATE_MESSAGE_BODY:
-            return {
-                ...state,
-                newMssageBody: action.body,
-            };
-            
-        case SEND_MESSAGE:
-            let body = state.newMssageBody;
-            return {
-                ...state,
-                newMssageBody: '',
-                messages: [...state.messages, { id: 25, message: body }],
-            };
-        default:
-            console.log(state);
-            return state;
-    }
-}
-
-export const sendMessageCreator = () => ({ type: SEND_MESSAGE})
-export const updateNewMessageBodyCreator = (body) => ({type: UPDATE_MESSAGE_BODY, body: body})
-
-
-export default messageReducer
