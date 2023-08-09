@@ -3,10 +3,10 @@ import './App.scss'
 import Header from "./header/header.jsx";
 import Nav from "./nav_bar/nav.jsx";
 import Main from "./main-posts/main.jsx";
-import Dialogs from "./dialogs/dialogs.jsx";
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import { Provider } from 'react-redux';
 import {store} from '../redux/redux-store'
+import DialogsContainer from "./dialogs/dialogsContainer.jsx";
 
 
 const App = (props) => {
@@ -21,11 +21,10 @@ const App = (props) => {
                                 <Nav />
                                 <Routes>
                                     <Route path="/main-posts" element={<Main 
-                                        postsPage={props.state.postsPage}
-                                        dispatch={props.dispatch}/>}/>
-                                    <Route path="/dialogs" element={<Dialogs 
                                         store={props.store}
-                                        dispatch={props.dispatch}
+                                        />}/>
+                                    <Route path="/dialogs" element={<DialogsContainer 
+                                        store={props.store}
                                         />}/>
                                 </Routes>
                             </div>

@@ -1,53 +1,24 @@
 import React from "react"
 import './dialogs.scss'
-import { useSelector, useDispatch } from 'react-redux';
-import { Link, Route, useParams, Routes } from "react-router-dom"
 import  DialogItem  from './Dialogitem/dialogItem.jsx'
 import  MessageItem  from './MessageItem/messageItem.jsx'
-import { updateNewMessageBodyCreator, sendMessageCreator} from '../../redux/message-page-reducer'
 
 
 const Dialogs = (props) => {
-    
-    
-    // let state = props.store.getState().messagePage;
-    // console.log(test);
-    
+    const state = props.messagePage
 
-    
-    // const dialogElement = state.dialogs.map(user => <DialogItem name={user.name} id={user.id}/>)
-    // const messageElement = state.messages.map(user => <MessageItem message={user.message} id={user.id}/>)
-    // let newMessageBody = state.newMssageBody;
-    
-
-    // const onSendMessageClick = () => {
-    //     props.store.dispatch(sendMessageCreator())
-    // }
-    // const onNewMessageChange = (e) => {
-    //     let body = e.target.value;
-        
-    //     props.store.dispatch(updateNewMessageBodyCreator(body))
-       
-    // }
-
-    const state = useSelector(state => state.messagePage)
-    const dispatch = useDispatch();
-
-    
     const dialogElement = state.dialogs.map(user => <DialogItem name={user.name} id={user.id}/>)
     const messageElement = state.messages.map(user => <MessageItem message={user.message} id={user.id}/>)
+
     let newMessageBody = state.newMssageBody;
     
 
     const onSendMessageClick = () => {
-        // props.store.dispatch(sendMessageCreator())
-        dispatch(sendMessageCreator());
+        props.sendMessage()
     }
     const onNewMessageChange = (e) => {
         let body = e.target.value;
-        
-        // props.store.dispatch(updateNewMessageBodyCreator(body))
-        dispatch(updateNewMessageBodyCreator(body))
+        props.UpdateNewMessageBody(body)
        
     }
     

@@ -1,17 +1,15 @@
 import React from "react";
 import './main.scss'
 import image from './image/main-fon.jpg'
-import Posts from "./posts/posts.jsx";
+import PostsContaienr from "./posts/postsContainer.jsx";
 
 const Main = (props) => {
     return (
         <div className="main">
             <div className="main-container">
                 <img src={image} alt="" />
-                <Posts 
-                    posts={props.postsPage.posts} 
-                    newPostText={props.postsPage.newPostText}
-                    dispatch={props.dispatch}/>
+                <PostsContaienr 
+                    store={props.store}/>
             </div>
                 
         </div>

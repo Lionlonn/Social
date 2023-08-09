@@ -1,34 +1,32 @@
 import React from "react";
 import './posts.scss'
 import Post from "../../post/post.jsx";
-import { useSelector, useDispatch } from 'react-redux';
-import { addPostActionCreater, updateNewPostTextActionCreate} from '../../../redux/posts-page-reducer'
 
 
 
 
 const Posts = (props) => {
-    const state = useSelector(state => state.postsPage)
-    const dispatch = useDispatch();
+    const state = props.postsPage
     const postElement = state.posts.map(post => <Post  img={post.img} id={post.id} comment={post.comment} countLike={post.countLike}/>)
-
+    console.log(state);
+    
+    
     let newPost = state.newPostText;
-    console.log(newPost);
-
+    
     const onButtonClick = () => {
-        dispatch(addPostActionCreater())
+        props.addPostCreater()
     }
 
     let onPostChange = (e) => {
         let text = e.target.value
-        dispatch(updateNewPostTextActionCreate(text))
+        props.updateNewPostText(text)
     }
 
     return (
         <div className="posts">
             <textarea  placeholder="Enter your post"
                 onChange={onPostChange}
-                value={state.newPostText}/>
+                value={newPost}/>
             <div className="post-user">
                 <button onClick={ onButtonClick }>Отправить</button>
                 <button>Удалить</button>
