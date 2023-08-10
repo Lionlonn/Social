@@ -20,12 +20,8 @@ const App = (props) => {
                             <div className="main-grid">
                                 <Nav />
                                 <Routes>
-                                    <Route path="/main-posts" element={<Main 
-                                        store={props.store}
-                                        />}/>
-                                    <Route path="/dialogs" element={<DialogsContainer 
-                                        store={props.store}
-                                        />}/>
+                                    <Route path="/main-posts" element={<Main />}/>
+                                    <Route path="/dialogs" element={<DialogsContainer />}/>
                                 </Routes>
                             </div>
                         </div>

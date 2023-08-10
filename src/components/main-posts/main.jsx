@@ -8,8 +8,7 @@ const Main = (props) => {
         <div className="main">
             <div className="main-container">
                 <img src={image} alt="" />
-                <PostsContaienr 
-                    store={props.store}/>
+                <PostsContaienr />
             </div>
                 
         </div>

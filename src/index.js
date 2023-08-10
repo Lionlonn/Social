@@ -7,8 +7,6 @@ import { BrowserRouter } from "react-router-dom";
 
 const renderEntireTree = (state) => {
     ReactDOM.render(<App 
-        state={state}
-        store={store}
         />, document.getElementById('root'));
 }
   
