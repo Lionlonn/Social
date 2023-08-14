@@ -7,7 +7,7 @@ import { addPostActionCreater, updateNewPostTextActionCreate} from '../../../red
 
 
 
-const PostsContaienr = (props) => {
+const PostsContaienr = () => {
     const state = useSelector(state => state.postsPage)
     const dispatch = useDispatch();
 

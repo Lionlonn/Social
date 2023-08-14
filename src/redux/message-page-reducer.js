@@ -63,19 +63,3 @@ export default messageReducer
 
 
 
-
-// const messageReducer = (state = initialState, action) => {
-
-//     switch(action.type) {
-//         case UPDATE_MESSAGE_BODY: 
-//             state.newMssageBody = action.body;
-//             return state;
-//         case SEND_MESSAGE:
-//             let body = state.newMssageBody
-//             state.newMssageBody = '';
-//             state.messages.push({id:25, message: body})
-//             return state;
-//         default:
-//             return state;
-//     }
-// }

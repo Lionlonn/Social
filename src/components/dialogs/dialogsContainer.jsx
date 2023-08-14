@@ -5,10 +5,11 @@ import { updateNewMessageBodyCreator, sendMessageCreator} from '../../redux/mess
 import Dialogs from "./dialogs.jsx";
 
 
-const DialogsContainer = (props) => {
+const DialogsContainer = () => {
     
 
     const state = useSelector(state => state.messagePage)
+    
     const dispatch = useDispatch();
 
     const onSendMessageClick = () => {
