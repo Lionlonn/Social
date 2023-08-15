@@ -15,7 +15,7 @@ const Nav = () => {
                             <Link to="/dialogs">Сообщения</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="#">Новости</Link>
+                            <Link to="/users">Пользователи</Link>
                         </li>
                         <li className="nav-item">
                             <Link to="#">Музыка</Link>

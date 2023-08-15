@@ -3,11 +3,11 @@ import './App.scss'
 import Header from "./header/header.jsx";
 import Nav from "./nav_bar/nav.jsx";
 import Main from "./main-posts/main.jsx";
-import {BrowserRouter as Router, Route, Routes, BrowserRouter} from "react-router-dom";
+import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import { Provider } from 'react-redux';
 import {store} from '../redux/redux-store'
 import DialogsContainer from "./dialogs/dialogsContainer.jsx";
-import Users from "./users/users.jsx";
+import UserContainer from "./users/UsersContainer.jsx";
 
 
 const App = (props) => {
@@ -23,7 +23,7 @@ const App = (props) => {
                                 <Routes>
                                     <Route path="/main-posts" element={<Main />}/>
                                     <Route path="/dialogs" element={<DialogsContainer />}/>
-                                    <Route path="/users" element={<Users />}/>
+                                    <Route path="/users" element={<UserContainer/>}/>
                                 </Routes>
                             </div>
                         </div>
