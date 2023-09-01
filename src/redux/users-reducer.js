@@ -1,38 +1,14 @@
 const FOLLOW = 'FOLLOW'
 const UNFOLLOW = 'UNFOLLOW'
 const SET_USERS = 'SET_USERS'
+const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE'
+const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT'
 
 let initialState = {
-    users: [
-        // {   
-        //     photoUrl: "https://phonoteka.org/uploads/posts/2022-09/1663304449_53-phonoteka-org-p-berserk-gats-art-vkontakte-65.jpg",
-        //     followed: false,
-        //     fullname: "Alexandr",
-        //     id: 1, 
-        //     message: "dsadasd", 
-        //     status: "I am a Boss to",
-        //     location: {cyty: "Minsk", country: "Belarus"},
-        // },
-        // {   
-        //     photoUrl: "https://phonoteka.org/uploads/posts/2022-09/1663304449_53-phonoteka-org-p-berserk-gats-art-vkontakte-65.jpg",
-        //     followed: true,
-        //     fullname: "Andrey",
-        //     id: 2, 
-        //     message: "dsadasd", 
-        //     status: "I am a Boss",
-        //     location: {cyty: "Moscow", country: "Russia"},
-        // },
-        // {   
-        //     photoUrl: "https://phonoteka.org/uploads/posts/2022-09/1663304449_53-phonoteka-org-p-berserk-gats-art-vkontakte-65.jpg",
-        //     followed: true,
-        //     fullname: "Max",
-        //     id: 3, 
-        //     message: "dsadasd", 
-        //     status: "I am a Boss",
-        //     location: {cyty: "Bogorodsk", country: "Russia"},
-        // },
-    ],
-    newPostText: "New Camasutre"
+    users: [],
+    pageSize: 5,
+    totalUsersCount: 0,
+    currentPage: 1
 }
 
 
@@ -54,6 +30,12 @@ const usersreducer = (state = initialState, action) => {
 
         case SET_USERS: {
             return { ...state, users: [ ...action.users ]}
+        }
+        case SET_CURRENT_PAGE: {
+            return { ...state, currentPage: action.currentPage}
+        }
+        case SET_TOTAL_USERS_COUNT: {
+            return { ...state, totalUsersCount: action.count}
         }
 
         case UNFOLLOW:
@@ -79,5 +61,7 @@ const usersreducer = (state = initialState, action) => {
 export const followAC = (userId) => ({ type: FOLLOW, userId})
 export const unFollowAC = (userId) => ({type: UNFOLLOW, userId})
 export const setUsersAC = (users) => ({type: SET_USERS, users})
+export const setCurrentPageAc = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage})
+export const setUsersTotalCountAc = (totalUsersCount) => ({type: SET_TOTAL_USERS_COUNT, count: totalUsersCount})
 
 export default usersreducer

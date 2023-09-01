@@ -10,8 +10,6 @@ class Dialogs extends React.Component {
         this.state = {
             newMessageBody: ''
         }
-        
-
     }
 
     
