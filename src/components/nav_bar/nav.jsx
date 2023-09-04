@@ -9,7 +9,7 @@ const Nav = () => {
                 <div className="nav">
                     <ul className="nav-list">
                         <li className="nav-item">
-                            <Link to="/main-posts">Профиль</Link>
+                            <Link to="/profile">Профиль</Link>
                         </li>
                         <li className="nav-item">
                             <Link to="/dialogs">Сообщения</Link>

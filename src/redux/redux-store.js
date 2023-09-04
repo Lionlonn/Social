@@ -7,7 +7,7 @@ import usersreducer from './users-reducer';
 
 const rootReducer = combineReducers({
     
-    postsPage: postsReducer,
+    profilePage: postsReducer,
     messagePage: messageReducer,
     usersPage: usersreducer
     
@@ -15,3 +15,5 @@ const rootReducer = combineReducers({
 export const store = configureStore({
     reducer:rootReducer
 })
+
+console.log(store.getState());

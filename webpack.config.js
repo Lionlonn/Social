@@ -5,8 +5,9 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
     devServer: {
-        port: 3000,
+        port: 3001,
     },
+    
     entry: './src/index.js',
     
     output: {
@@ -22,7 +23,11 @@ module.exports = {
             filename: '[name].[contenthash].css'
         }),
     ],
-
+    performance: {
+        hints: false,
+        maxEntrypointSize: 512000,
+        maxAssetSize: 512000
+    },
     module: {
         rules: [
             {

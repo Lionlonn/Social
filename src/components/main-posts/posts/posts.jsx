@@ -20,7 +20,7 @@ class Posts extends React.Component {
         this.setState( {newPostText:text})
     }
     render () {
-        const state = this.props.postsPage
+        const state = this.props.profilePage
         const postElement = state.posts.map(post => <Post  img={post.img} id={post.id} comment={post.comment} countLike={post.countLike}/>)
         
         let newPost = state.newPostText;

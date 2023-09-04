@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 import {store} from '../redux/redux-store'
 import DialogsContainer from "./dialogs/dialogsContainer.jsx";
 import UserContainer from "./users/UsersContainer.jsx";
+import ProfileContainer from "./main-posts/posts/profileContainer.jsx";
 
 
 const App = (props) => {
@@ -21,7 +22,7 @@ const App = (props) => {
                             <div className="main-grid">
                                 <Nav />
                                 <Routes>
-                                    <Route path="/main-posts" element={<Main />}/>
+                                    <Route path="/profile" element={<ProfileContainer />}/>
                                     <Route path="/dialogs" element={<DialogsContainer />}/>
                                     <Route path="/users" element={<UserContainer/>}/>
                                 </Routes>

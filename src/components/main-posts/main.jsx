@@ -2,17 +2,18 @@ import React from "react";
 import './main.scss'
 import image from './image/main-fon.jpg'
 import PostsContaienr from "./posts/postsContainer.jsx";
+import ProfileInfo from "./posts/profile.jsx";
 
-const Main = (props) => {
+const Profile = (props) => {
     return (
         <div className="main">
             <div className="main-container">
-                <img src={image} alt="" />
-                <PostsContaienr />
+                <ProfileInfo  profile={props.props}/>
+                <PostsContaienr/>
             </div>
                 
         </div>
     )
 }
 
-export default Main
+export default Profile
