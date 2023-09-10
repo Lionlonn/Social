@@ -16,4 +16,4 @@ export const store = configureStore({
     reducer:rootReducer
 })
 
-console.log(store.getState());
+console.log(window.store = store);

@@ -22,7 +22,7 @@ const App = (props) => {
                             <div className="main-grid">
                                 <Nav />
                                 <Routes>
-                                    <Route path="/profile" element={<ProfileContainer />}/>
+                                    <Route path="/profile/*" element={<ProfileContainer />}/>
                                     <Route path="/dialogs" element={<DialogsContainer />}/>
                                     <Route path="/users" element={<UserContainer/>}/>
                                 </Routes>

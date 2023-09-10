@@ -8,6 +8,7 @@ class Posts extends React.Component {
         this.state = {
             newPostText: ""
         }
+        
     }
     
     onButtonClick = () => {
@@ -19,9 +20,10 @@ class Posts extends React.Component {
         this.props.updateNewPostText(text)
         this.setState( {newPostText:text})
     }
+    // img={post.img} id={post.id}
     render () {
         const state = this.props.profilePage
-        const postElement = state.posts.map(post => <Post  img={post.img} id={post.id} comment={post.comment} countLike={post.countLike}/>)
+        const postElement = state.posts.map(post => <Post profile={this.props.profile} comment={post.comment} countLike={post.countLike}/>)
         
         let newPost = state.newPostText;
 

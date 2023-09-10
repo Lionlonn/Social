@@ -12,15 +12,15 @@ debugger
     componentDidMount (){
         axios.get(`https://social-network.samuraijs.com/api/1.0/profile/2`).then(response => {
             this.props.setUserProfile(response.data)
-            console.log(this.props.setUserProfile(response.data));
+            // console.log(this.props.setUserProfile(response.data));
         });
     }
     
     render () {
         return (
             <div>
-                <ProfileInfo {...this.props} profile={this.props.profile}/>
-                <PostsContaienr />
+                <ProfileInfo {...this.props} />
+                <PostsContaienr {...this.props}/>
             </div>
             
         )

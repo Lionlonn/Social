@@ -7,8 +7,9 @@ import { addPostActionCreater, updateNewPostTextActionCreate} from '../../../red
 
 
 
-const PostsContaienr = () => {
+const PostsContaienr = (props) => {
     
+
     const state = useSelector(state => state.profilePage)
 
     const dispatch = useDispatch();
@@ -21,7 +22,7 @@ const PostsContaienr = () => {
         dispatch(updateNewPostTextActionCreate(text))
     }
     return (
-        <Posts updateNewPostText={onPostChange} addPostCreater={onButtonClick} profilePage={state}/>
+        <Posts updateNewPostText={onPostChange} addPostCreater={onButtonClick} profilePage={state} profile={props.profile}/>
     )
 }
 

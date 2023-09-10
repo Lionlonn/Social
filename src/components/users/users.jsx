@@ -28,7 +28,7 @@ let Users = (props) => {
             {props.users.map((u) => (
             <div key={u.id}>
                 <span>
-                    <Link to={`/profile/${u.id}`}  >
+                    <Link to={'/profile/' + u.id}  >
                         <img src={ u.photos.small != null ? u.photos.small : "https://phonoteka.org/uploads/posts/2022-09/1663304449_53-phonoteka-org-p-berserk-gats-art-vkontakte-65.jpg"} className={style.usersPhoto} alt={u.name} />
                     </Link>
                 </span>
