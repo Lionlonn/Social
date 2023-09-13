@@ -1,22 +1,24 @@
-
+.header {
+    height: 70px;
+    background: burlywood;
+    
+}
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 15px;
 }
 
-.header {
+
+
+
+.login-block {
     height: 70px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    background: burlywood;
-    
+    float: right;
 }
 
-.menu ul{
-    gap: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.login-block a {
+    color: white;
 }
