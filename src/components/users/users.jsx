@@ -2,6 +2,7 @@ import React from "react";
 import style from './users.module.scss'
 import { Link } from "react-router-dom"
 import axios from 'axios'
+import { SubscriptionAPI } from "../../api/userSubscription/subscription";
 
 let Users = (props) => {
     
@@ -36,29 +37,19 @@ let Users = (props) => {
                 <span>
                 {u.followed ? (
                     <button onClick={() => {
-                        axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, { 
-                            withCredentials: true,
-                            headers: {
-                                "API-KEY" : "338b2507-3248-457e-811e-1f2e4642f7e5"
-                            }
-                        }).then(response => {
-                            if (response.data.resultCode == 0) {
+                        SubscriptionAPI.setUnFollow(u.id).then(data => {
+                            if (data.resultCode == 0) {
                                 props.unFollow(u.id)
                             }
-                        });
+                        })
                         
                     }}>UnFollow</button>) :
                     (<button onClick={() => {
-                        axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, { 
-                            withCredentials: true,
-                            headers: {
-                                "API-KEY" : "338b2507-3248-457e-811e-1f2e4642f7e5"
-                            } 
-                        }).then(response => {
-                            if (response.data.resultCode == 0) {
+                        SubscriptionAPI.setFollow(u.id).then(data => {
+                            if (data.resultCode == 0) {
                                 props.follow(u.id)
                             }
-                        });
+                        })
                         
                         }}>Follow</button>)}
                 </span>
