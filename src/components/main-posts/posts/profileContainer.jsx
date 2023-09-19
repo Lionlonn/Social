@@ -5,8 +5,7 @@ import PostsContaienr from "../posts/postsContainer.jsx";
 import axios from 'axios'
 import ProfileInfo from "./profile.jsx";
 import { connect } from "react-redux";
-import { setUserProfile } from '../../../redux/posts-page-reducer'
-import { ProfileAPI } from "../../../api/profile/profile";
+import { getProfile } from '../../../redux/posts-page-reducer.js'
 
 
 function withRouter(Component) {
@@ -33,9 +32,7 @@ class ProfileContainer extends React.Component{
         if (!profileId) {
             profileId = 2;
         }
-        ProfileAPI.getProfile(profileId).then(data => {
-            this.props.setUserProfile(data)
-        })
+        this.props.getProfile(profileId)
     }
     
     render () {
@@ -56,4 +53,6 @@ let mapStateToProps = (state) => ({
 })
 
 
-export default connect(mapStateToProps, { setUserProfile }) (withRouter(ProfileContainer))
+// export default connect(mapStateToProps, { setUserProfile }) (withRouter(ProfileContainer))
+
+export default connect(mapStateToProps, { getProfile }) (withRouter(ProfileContainer))
