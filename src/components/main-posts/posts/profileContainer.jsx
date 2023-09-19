@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import {  useLocation, useNavigate, useParams, } from "react-router-dom";
 import '../posts/posts.scss'
 import PostsContaienr from "../posts/postsContainer.jsx";
-import axios from 'axios'
 import ProfileInfo from "./profile.jsx";
 import { connect } from "react-redux";
 import { getProfile } from '../../../redux/posts-page-reducer.js'
@@ -53,6 +52,5 @@ let mapStateToProps = (state) => ({
 })
 
 
-// export default connect(mapStateToProps, { setUserProfile }) (withRouter(ProfileContainer))
 
 export default connect(mapStateToProps, { getProfile }) (withRouter(ProfileContainer))
