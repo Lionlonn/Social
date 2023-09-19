@@ -2,10 +2,8 @@ import React from "react";
 import style from './users.module.scss'
 import { Link } from "react-router-dom"
 import axios from 'axios'
-import { SubscriptionAPI } from "../../api/userSubscription/subscription";
 
 let Users = (props) => {
-    
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
         
         let pages = [];
@@ -36,20 +34,12 @@ let Users = (props) => {
                 </span>
                 <span>
                 {u.followed ? (
-                    <button onClick={() => {
-                        SubscriptionAPI.setUnFollow(u.id).then(data => {
-                            if (data.resultCode == 0) {
-                                props.unFollow(u.id)
-                            }
-                        })
+                    <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
+                        props.unFollow(u.id)
                         
                     }}>UnFollow</button>) :
-                    (<button onClick={() => {
-                        SubscriptionAPI.setFollow(u.id).then(data => {
-                            if (data.resultCode == 0) {
-                                props.follow(u.id)
-                            }
-                        })
+                    (<button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
+                        props.follow(u.id)
                         
                         }}>Follow</button>)}
                 </span>
