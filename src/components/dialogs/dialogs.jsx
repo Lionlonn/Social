@@ -2,6 +2,7 @@ import React from "react"
 import './dialogs.scss'
 import  DialogItem  from './Dialogitem/dialogItem.jsx'
 import  MessageItem  from './MessageItem/messageItem.jsx'
+import { Navigate } from "react-router-dom"
 
 
 class Dialogs extends React.Component {
@@ -22,13 +23,16 @@ class Dialogs extends React.Component {
         this.setState( {newMessageBody:body} )
        
     }
-
+    
 
     render () {
-        const state = this.props.messagePage
+        const state = this.props.messagePage.messages
         const dialogElement = state.dialogs.map(user => <DialogItem name={user.name} id={user.id}/>)
         const messageElement = state.messages.map(user => <MessageItem message={user.message} id={user.id}/>)
         let newMessageBody = state.newMssageBody;
+
+        if (!this.props.messagePage.isAuth) return <Navigate to={"/login"}/>;
+
 
         return (
             <div className="chat">

@@ -1,6 +1,7 @@
 import React from "react";
 import './posts.scss'
 import Post from "../../post/post.jsx";
+import { Navigate } from "react-router-dom";
 
 class Posts extends React.Component {
     constructor(props) {
@@ -22,11 +23,12 @@ class Posts extends React.Component {
     }
     
     render () {
-        const state = this.props.profilePage
+        const state = this.props.profilePage.profile
         const postElement = state.posts.map(post => <Post profile={this.props.profile} comment={post.comment} countLike={post.countLike}/>)
         
         let newPost = state.newPostText;
 
+        if (!this.props.profilePage.isAuth) return <Navigate to={"/login"}/>
         return (
             <div className="posts">
                 <textarea  placeholder="Enter your post"

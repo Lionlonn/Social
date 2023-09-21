@@ -8,8 +8,12 @@ import Dialogs from "./dialogs.jsx";
 const DialogsContainer = () => {
     
 
-    const state = useSelector(state => state.messagePage)
-    
+    const state = useSelector(state => ({
+        messages: state.messagePage,
+        isAuth : state.auth.isAuth
+    }))
+
+
     const dispatch = useDispatch();
 
     const onSendMessageClick = () => {
